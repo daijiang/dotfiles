@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+---
+layout: post
+title:  ${1}
+categories: [${2:notes}]
+tags: [${3}]
+---
+${4}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>postheader</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.md</scope> -->
+</snippet>
