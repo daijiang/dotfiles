@@ -74,7 +74,7 @@ vnoremap > >gv
 " View whitespace
 nnoremap <leader>l :set list!<CR>
 set listchars=tab:»\ ,eol:¬
-set showbreak=↪
+"set showbreak=↪
 
 " Better auto-completion of options
 set wildmenu
@@ -123,7 +123,6 @@ set foldmethod=marker
 
 "Line numbers and syntax
 set number "Line numbers
-syntax enable "Syntax coloration
 set relativenumber
 
 " show line number, cursor position
@@ -133,10 +132,13 @@ set ruler
 set wrap
 set textwidth=80
 set formatoptions=qrn1
-set colorcolumn=80
+"set colorcolumn=80
 
 " Set vim to save the file on focus out.
 au FocusLost * :wa
+
+" auto highlight markdown syntax
+au BufRead,BufNewFile *.md set filetype=markdown
 
 "Make Sure that Vim returns to the same line when we reopen a file"
 augroup line_return
@@ -147,10 +149,11 @@ augroup line_return
         \ endif
 augroup END
 
-"set t_Co=256
-"let base16colorspace=256
-"set background=dark
-colorscheme default
+syntax enable "Syntax coloration
+set t_Co=256
+let base16colorspace=256
+set background=dark
+colorscheme solarized 
 
 " Scroll faster
 nnoremap <C-e> 5<C-e>
@@ -187,11 +190,11 @@ Plugin 'gmarik/Vundle.vim'
 "Plugin 'user/L9', {'name': 'newL9'}
 
 " follow VCS changes in the left gutter
-Plugin 'mhinz/vim-signify'
+"Plugin 'mhinz/vim-signify'
 " Fugitive
-Plugin 'tpope/vim-fugitive'
-" GitHub issues
-" Plugin 'jaxbot/github-issues.vim'
+"plugin 'tpope/vim-fugitive'
+" github issues
+" plugin 'jaxbot/github-issues.vim'
 " JSON syntax
 " Plugin 'elzr/vim-json'
 " distraction-free with <leader>V
@@ -199,50 +202,26 @@ Plugin 'tpope/vim-fugitive'
  nnoremap <leader>V :Goyo<CR>
 let g:goyo_margin_top=2
 let g:goyo_margin_bottom=2
+
 " pandoc
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-pandoc'
-" CSS colors
-Plugin 'ap/vim-css-color'
-" better javascript syntax
-Plugin 'pangloss/vim-javascript'
+
 " (un)comment with <leader>c(u/c)
 Plugin 'scrooloose/nerdcommenter'
-" use tab for auto-completion
-Plugin 'ervandew/supertab'
-" Neocomplete
-"Plugin 'Shougo/neocomplete.vim'
-" R communication
-"Plugin 'jalvesaq/VimCom'
-"Plugin 'jcfaria/Vim-R-plugin'
-" Add END after begin
-Plugin 'tpope/vim-endwise'
+
 " Surround
 Plugin 'tpope/vim-surround'
-" Liquid markup
-Plugin 'tpope/vim-liquid'
 
-" ipython
-Plugin 'ivanov/vim-ipython'
-" julia
-Plugin 'JuliaLang/julia-vim'
 " Autoclose brackets
 Plugin 'Townk/vim-autoclose'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+
+" snippets, I add mine in _snippet
+Plugin 'msanders/snipmate.vim'
+
 " Theme
 "Plugin 'chriskempson/base16-vim'
 "Plugin 'tpoisot/vim-base16-term'
-"" Ctags
-"Plugin 'majutsushi/tagbar'
-"" NERD Tree with git support
-"Plugin 'Xuyuanp/nerdtree'
-"" LaTeX-Suite
-"Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex'
-"" Create gists
-"Plugin 'mattn/gist-vim'
-"Plugin 'mattn/webapi-vim'
 
 
 " All of your Plugins must be added before the following line
@@ -253,109 +232,31 @@ filetype plugin indent on    " required
 
 """""""" end of vundle.   
 
-
-
-" python
-" let python_highlight_all = 1
-" let python_highlight_indent_errors = 0
-" let python_highlight_space_errors = 0
-
-" NERDTree
-"nnoremap <leader>f :NERDTreeToggle<CR>
-
-" tagbar
-"nnoremap <leader>t :TagbarToggle<CR>
-
-"Liquid
-"let g:pandoc_use_embeds_in_codeblocks_for_langs = ['ruby', 'vim', 'python', 'r', 'json', 'c', 'julia']
-
-"SuperTab!
-let g:SuperTabDefaultCompletionType = "context"
-
-" NeoComplete
-"let g:neocomplete#enable_at_startup = 0
-"let g:neocomplete#enable_smart_case = 1
-"nnoremap <leader>ne :NeoCompleteEnable<CR>
-"nnoremap <leader>nd :NeoCompleteDisable<CR>
-
-" <leader>k Knits to MD
-nnoremap <leader>k :! Rscript -e "library(knitr);knit(input='%', output='%:r.md');"<CR>
-
-
-"""""" Various writing improvements
-
-" New signs for the pandoc bundle
-let g:pandoc_syntax_user_cchars = {'atx': '¶', 'codelang': '>', 'footnote': '§', 'definition': '»', 'newline': '¬'}
-
-"Rmd and Rpres are pandoc
-au BufRead,BufNewFile *.Rmd,*.Rpres setfiletype pandoc
+" pandoc vim setting
+" Bib file for pandoc
+let b:pandoc_biblio_bibs = ['~/Dropbox/Latex_bib_sty/zotero.bib']
+let g:pandoc#biblio#bibs = ['~/Dropbox/Latex_bib_sty/zotero.bib']
+let g:pandoc#biblio#use_bibtool = 1
 
 " Format paragraphs with <leader>q
 map <leader>q {!}fmt -w 80<CR>}<CR>
 
-" Place markers with {type} for markdown files
-augroup markers
-   autocmd! BufEnter *.md,*.mkd,*.txt,*.Rmd,*.Rpres match Error '{{\w\+}}'
-augroup END
-nnoremap <leader>{{ :vimgrep /{\w\+}}/ %<CR>:copen<CR>
-"""""" END
-
-
-"Bib file for pandoc
-let g:pandoc_bibfiles = ['~/Dropbox/Latex_bib_sty/zotero.bib']
-let g:pandoc_use_bibtool = 1
-
-
-" This line is needed for bib files
-set grepprg=grep\ -nH\ $*
-
-" Latex kind of stuff
-let g:Tex_BIBINPUTS = "~/Dropbox/Latex_bib_sty/zotero.bib"
-let g:Tex_BibtexFlavor = 'bibtex'
-let g:Tex_Flavor='latex'
-let g:Tex_DefaultTargetFormat='pdf'
-set iskeyword+=:
-
-map <F3> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
-
-" GitHub access token
-" let g:github_access_token = "f8dfb0560ec35045a19e5f1eebba73d137f7cff7"
-" let g:github_upstream_issues = 1
-
-" tagbar markdown
-let g:tagbar_type_pandoc = {
-    \ 'ctagstype': 'pandoc',
-    \ 'ctagsbin' : '~/.scripts/markdown2ctags.py',
-    \ 'ctagsargs' : '-f - --sort=yes',
-    \ 'kinds' : [
-        \ 's:sections',
-        \ 'i:images'
-    \ ],
-    \ 'sro' : '|',
-    \ 'kind2scope' : {
-        \ 's' : 'section',
-    \ },
-    \ 'sort': 0,
-\ }
-
-" Gist options
-let g:gist_detect_filetype = 1
 
  "=========== Gvim Settings =============
 
 " Removing scrollbars
 if has("gui_running")
-    set guitablabel=%-0.12t%M
-    set guioptions-=T
-    set guioptions-=r
-    set guioptions-=L
-    set guioptions+=a
-    set guioptions-=m
-    colo badwolf
+"    set guitablabel=%-0.12t%M
+    "set guioptions-=T
+    "set guioptions-=r
+    "set guioptions-=L
+    "set guioptions+=a
+    "set guioptions-=m
+    colo solarized 
     set listchars=tab:▸\ ,eol:¬         " Invisibles using the Textmate style
 else
     set t_Co=256
-    colorschem default
+    colorschem solarized 
     "colorschem torte
 endif
 
