@@ -234,9 +234,11 @@ filetype plugin indent on    " required
 
 " pandoc vim setting
 " Bib file for pandoc
-let b:pandoc_biblio_bibs = ['~/Dropbox/Latex_bib_sty/zotero.bib']
-let g:pandoc#biblio#bibs = ['~/Dropbox/Latex_bib_sty/zotero.bib']
+let g:pandoc_biblio_bibs = '~/Dropbox/Latex_bib_sty/zotero.bib'
+let g:pandoc#biblio#bibs = '~/Dropbox/Latex_bib_sty/zotero.bib'
 let g:pandoc#biblio#use_bibtool = 1
+" This line is needed for bib files
+set grepprg=grep\ -nH\ $*
 
 " Format paragraphs with <leader>q
 map <leader>q {!}fmt -w 80<CR>}<CR>
