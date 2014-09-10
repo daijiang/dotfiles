@@ -1,4 +1,5 @@
 #!/bin/bash
+# this file is used after reinstall the operation system.
 # update & upgrade ----------
 sudo apt-get update
 sudo apt-get upgrade
@@ -45,6 +46,10 @@ sudo apt-get -y install indicator-multiload indicator-keylock
 # install deb files from directory ---------------
 sudo dpkg -i ~/Downloads/google-chrome-stable_current_amd64.deb
 sudo dpkg -i ~/Downloads/rstudio-*-amd64.deb
+
+# add open in terminal option when right click
+sudo apt-get install nautilus-open-terminal
+nautilus -q && nautilus &
 
 # at the end -----------
 # sudo chown root:root reinstall.sh (change owner of the script)

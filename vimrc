@@ -11,10 +11,10 @@ nnoremap <right> <nop>
 " Replace <Leader> with ,
 let mapleader = ","
 
-" enable mouse
+" enable mouse in all modes
 set mouse=a
 
-" set title to windoe
+" set title to window
 set title
 
 " Make pasting done without any indentation break."
@@ -48,10 +48,10 @@ set statusline+=0x%-8B " character value
 set statusline+=%-14(%l,%c%V%) " line, character
 set statusline+=%<%P " file position
 
-" Display incomplete commands.
+"  Show the (partial) command as it’s being typed 
 set showcmd
 
-" shwo editing mode
+" show current mode
 set showmode
 
 " Move across splits
@@ -109,6 +109,9 @@ nnoremap <leader><space> :noh<cr>
 "The cursor is never on the last line
 set scrolloff=3
 
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
+
 "Files are read as soon as they are changed
 set autoread
 
@@ -120,6 +123,10 @@ set noerrorbells
 set visualbell
 set encoding=utf-8
 set foldmethod=marker
+
+" Don’t add empty newlines at the end of files
+set binary
+set noeol
 
 "Line numbers and syntax
 set number "Line numbers
@@ -234,8 +241,11 @@ filetype plugin indent on    " required
 
 " pandoc vim setting
 " Bib file for pandoc
-let g:pandoc_biblio_bibs = '~/Dropbox/Latex_bib_sty/zotero.bib'
-let g:pandoc#biblio#bibs = '~/Dropbox/Latex_bib_sty/zotero.bib'
+"let g:pandoc_biblio_bibs = '~/Dropbox/Latex_bib_sty/zotero.bib'
+"let g:pandoc#biblio#bibs = ['~/Dropbox/Latex_bib_sty/zotero.bib']
+let g:pandoc#biblio#sources = "bclg"
+" remember to put default.bib in /.pandoc/
+let g:pandoc#command#latex_engine = "pdflatex"
 let g:pandoc#biblio#use_bibtool = 1
 " This line is needed for bib files
 set grepprg=grep\ -nH\ $*
@@ -254,7 +264,11 @@ if has("gui_running")
     "set guioptions-=L
     "set guioptions+=a
     "set guioptions-=m
-    colo solarized 
+    " Use the Solarized Dark theme
+    set background=dark
+    colorscheme solarized
+    " Use 14pt Monaco
+	"set guifont=Monospace:h12
     set listchars=tab:▸\ ,eol:¬         " Invisibles using the Textmate style
 else
     set t_Co=256
