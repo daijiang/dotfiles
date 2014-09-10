@@ -42,6 +42,7 @@ After install Pandoc with cabal, `cp ~/.cabal/bin/pandoc /usr/bin/pandoc` and `c
 		${4}
 
 ## default.bib in ~/.pandoc
+If you do not have `.pandoc` folder in your home, create one. Then put your bib file there. In zotero, I use [AutoZotBib](http://www.rtwilson.com/academic/autozotbib) to do this. In the autozotbib reference, define the path as `~/.pandoc/default.bib`.
 
 ## my tweak theme in oh-my-zsh
 
