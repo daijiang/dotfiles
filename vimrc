@@ -3,10 +3,11 @@ set hidden
 filetype off
 set cursorline
 
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 
 " Replace <Leader> with ,
 let mapleader = ","
@@ -147,6 +148,12 @@ au FocusLost * :wa
 " auto highlight markdown syntax
 au BufRead,BufNewFile *.md set filetype=markdown
 
+" Enable spellchecking for Markdown
+autocmd FileType markdown setlocal spell
+
+" Automatically wrap at 80 characters for Markdown
+autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+
 "Make Sure that Vim returns to the same line when we reopen a file"
 augroup line_return
     au!
@@ -269,7 +276,7 @@ if has("gui_running")
     colorscheme solarized
     " Use 14pt Monaco
 	"set guifont=Monospace:h12
-    set listchars=tab:▸\ ,eol:¬         " Invisibles using the Textmate style
+    set listchars=tab:▸\ ,eol:¬, trail:.         " Invisibles using the Textmate style
 else
     set t_Co=256
     colorschem solarized 
