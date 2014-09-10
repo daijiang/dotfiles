@@ -221,6 +221,10 @@ let g:goyo_margin_bottom=2
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-pandoc'
 
+" better markdown highlight
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
 " (un)comment with <leader>c(u/c)
 Plugin 'scrooloose/nerdcommenter'
 
@@ -256,6 +260,10 @@ let g:pandoc#command#latex_engine = "pdflatex"
 let g:pandoc#biblio#use_bibtool = 1
 " This line is needed for bib files
 set grepprg=grep\ -nH\ $*
+let g:pandoc#modules#disabled = ["formatting"]
+
+"vim-markdown I do not like folding
+let g:vim_markdown_folding_disabled=1
 
 " Format paragraphs with <leader>q
 map <leader>q {!}fmt -w 80<CR>}<CR>
@@ -276,7 +284,7 @@ if has("gui_running")
     colorscheme solarized
     " Use 14pt Monaco
 	"set guifont=Monospace:h12
-    set listchars=tab:▸\ ,eol:¬, trail:.         " Invisibles using the Textmate style
+    set listchars=tab:▸\ ,eol:¬,trail:.         " Invisibles using the Textmate style
 else
     set t_Co=256
     colorschem solarized 
