@@ -27,6 +27,20 @@ After install Pandoc with cabal, `cp ~/.cabal/bin/pandoc /usr/bin/pandoc` and `c
 
 ## snippet in snipMate
 
+	snippet postrcode
+		{% highlight r%}
+		${1}
+		{% endhighlight %}
+
+	snippet postheader
+		---
+		layout: post
+		title:  ${1}
+		categories: [${2:notes}]
+		tags: [${3}]
+		---
+		${4}
+
 ## default.bib in ~/.pandoc
 
 ## my tweak theme in oh-my-zsh
