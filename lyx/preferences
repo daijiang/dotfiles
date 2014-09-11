@@ -82,7 +82,7 @@ Format 15
 \set_color "changedtextauthor3" "#718c00"
 \set_color "changedtextauthor4" "#f5871f"
 \set_color "changedtextauthor5" "#eab700"
-\set_color "tabularline" "#d6d6d6"
+\set_color "tabularline" "#0055ff"
 \set_color "tabularonoffline" "#8e908c"
 \set_color "bottomarea" "#fafafa"
 \set_color "newpage" "#3E999F"
