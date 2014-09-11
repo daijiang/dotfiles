@@ -230,6 +230,7 @@ Plugin 'scrooloose/nerdcommenter'
 
 " Surround
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat' "to use . to repeat ds, cs, yss"
 
 " Autoclose brackets
 Plugin 'Townk/vim-autoclose'
