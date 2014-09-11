@@ -14,6 +14,7 @@ files="vimrc zshrc Renviron vim/colors oh-my-zsh/themes/dli.zsh-theme vim/bundle
 
  #create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
+rm -rf $olddir
 mkdir -p $olddir
 echo "done"
 
