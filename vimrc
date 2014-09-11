@@ -260,7 +260,7 @@ let g:pandoc#command#latex_engine = "pdflatex"
 let g:pandoc#biblio#use_bibtool = 1
 " This line is needed for bib files
 set grepprg=grep\ -nH\ $*
-let g:pandoc#modules#disabled = ["formatting"]
+let g:pandoc#modules#disabled = ["formatting", "folding"]
 
 "vim-markdown I do not like folding
 let g:vim_markdown_folding_disabled=1
