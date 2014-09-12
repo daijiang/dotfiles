@@ -2,9 +2,9 @@ dotfiles
 ========
 My setting files. Not ready for others but you are welcome to tweak them for your own use.
 
-Run `symbollinks.sh` to create dotfiles for 
+When you want to update your setting, just `git pull` first and then run `symbollinks.sh`.
 
-- vimrc
+## vim
 
 ## Zotero set up: 
 
