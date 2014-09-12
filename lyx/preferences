@@ -28,7 +28,7 @@ Format 15
 
 \set_color "cursor" "#c82829"
 \set_color "background" "#fafafa"
-\set_color "foreground" "#4d4d4c"
+\set_color "foreground" "#1b1b1a"
 \set_color "selection" "#d6d6d6"
 \set_color "selectiontext" "#4d4d4c"
 \set_color "latex" "#4271ae"
