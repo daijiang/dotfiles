@@ -11,6 +11,8 @@ olddir=~/dotfiles_old             # old dotfiles backup directory
 files="vimrc zshrc Renviron vim/colors oh-my-zsh/themes/dli.zsh-theme vim/bundle/snipmate.vim/snippets/_.snippets lyx/preferences fonts"
 
 ##########
+#If did not install Vundle before, uncomm this line.
+#git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
  #create dotfiles_old in homedir
 echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
