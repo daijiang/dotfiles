@@ -223,7 +223,8 @@ Plugin 'vim-pandoc/vim-pandoc'
 
 " better markdown highlight
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'plasticboy/vim-markdown'
+Plugin 'gabrielelana/vim-markdown'
 
 " (un)comment with <leader>c(u/c)
 Plugin 'scrooloose/nerdcommenter'
@@ -263,7 +264,11 @@ let g:pandoc#biblio#use_bibtool = 1
 set grepprg=grep\ -nH\ $*
 let g:pandoc#modules#disabled = ["formatting", "folding"]
 
-"vim-markdown I do not like folding
+" pandoc-syntax setting
+let g:pandoc#syntax#conceal#use = 0
+
+
+"plasticboy/vim-markdow I do not like folding
 let g:vim_markdown_folding_disabled=1
 
 " Format paragraphs with <leader>q
