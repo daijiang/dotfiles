@@ -1,5 +1,8 @@
 set nocompatible
-set hidden
+set hidden " hide buffers instead of closing them this
+"    means that the current buffer can be put
+"    to background without being written; and
+"    that marks and undo history are preserved
 filetype off
 set cursorline
 
@@ -27,6 +30,10 @@ nnoremap k gk
 
 " use ; instead of :
 nnoremap ; :
+
+" folding settings
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
 
 "Indentation parameters
 set autoindent
@@ -93,11 +100,11 @@ set incsearch "" search as you type
 set showmatch
 set hlsearch
 
-" To insert timestamp, press F3.
-nnoremap <leader>t a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
-inoremap <leader>t <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+" To insert timestamp, press <leader>T.
+nnoremap <leader>T a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+inoremap <leader>T <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 
-" To save, press ctrl-s.
+" To save, press leader-s.
 nnoremap <leader>s :w<CR>
 inoremap <leader>s <Esc>:w<CR>a
 
@@ -143,7 +150,7 @@ set formatoptions=qrn1
 "set colorcolumn=80
 
 " Set vim to save the file on focus out.
-au FocusLost * :wa
+"au FocusLost * :wa
 
 " auto highlight markdown syntax
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -164,10 +171,6 @@ augroup line_return
 augroup END
 
 syntax enable "Syntax coloration
-set t_Co=256
-let base16colorspace=256
-set background=dark
-colorscheme solarized 
 
 " Scroll faster
 nnoremap <C-e> 5<C-e>
@@ -176,6 +179,8 @@ nnoremap <C-y> 5<C-y>
 " Intuitive backspacing in insert mode
 set backspace=indent,eol,start
 
+set t_Co=256
+colorscheme solarized 
 
 """"""""" Vundle
 " set the runtime path to include Vundle and initialize
@@ -213,18 +218,40 @@ Plugin 'gmarik/Vundle.vim'
 " Plugin 'elzr/vim-json'
 " distraction-free with <leader>V
  Plugin 'junegunn/goyo.vim'
- nnoremap <leader>V :Goyo<CR>
-let g:goyo_margin_top=2
-let g:goyo_margin_bottom=2
+ Plugin 'junegunn/limelight.vim'
 
 " pandoc
 Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'vim-pandoc/vim-pandoc-after'
 Plugin 'vim-pandoc/vim-pandoc'
+
+" less syntax
+Plugin 'groenewege/vim-less'
 
 " better markdown highlight
 Plugin 'godlygeek/tabular'
-"Plugin 'plasticboy/vim-markdown'
-Plugin 'gabrielelana/vim-markdown'
+Plugin 'plasticboy/vim-markdown'
+"Plugin 'gabrielelana/vim-markdown'
+"
+" Passive voice
+Plugin 'jamestomasino/vim-writingsyntax'
+
+" Nerdtree
+Plugin 'scrooloose/nerdtree'
+
+Plugin 'wincent/Command-T'
+
+" git tools
+Plugin 'tpope/vim-fugitive'
+
+" jump around documents
+Plugin 'Lokaltog/vim-easymotion'
+
+" full path fuzzy search
+Plugin 'kien/ctrlp.vim'
+
+" some yaml support
+Plugin 'avakhov/vim-yaml'
 
 " (un)comment with <leader>c(u/c)
 Plugin 'scrooloose/nerdcommenter'
@@ -239,10 +266,22 @@ Plugin 'Townk/vim-autoclose'
 " snippets, I add mine in _snippet
 Plugin 'msanders/snipmate.vim'
 
-" Theme
-"Plugin 'chriskempson/base16-vim'
-"Plugin 'tpoisot/vim-base16-term'
+" neo-completion
+Plugin 'Shougo/neocomplete'
 
+Plugin 'vim-scripts/supertab'
+
+" base 16 theme
+Plugin 'chriskempson/base16-vim'
+
+"multiple cursor 
+Plugin 'terryma/vim-multiple-cursors'
+
+
+
+
+" LaTeX-Suite
+"Plugin 'git://git.code.sf.net/p/vim-latex/vim-latex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -250,11 +289,30 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
-"""""""" end of vundle.   
+"""""""" end of vundle.
+
+" Limelight integration to Goyo
+function! GoyoBefore()
+   Limelight
+endfunction
+
+function! GoyoAfter()
+   Limelight!
+endfunction
+
+let g:goyo_callbacks = [function('GoyoBefore'), function('GoyoAfter')]
+let g:limelight_conceal_ctermfg = 8
+
+nnoremap <leader>V :Goyo<CR>
+nnoremap <leader>L :Limelight!!<CR>
+let g:goyo_margin_top=2
+let g:goyo_margin_bottom=2
+
+let g:neocomplete#enable_at_startup = 1
 
 " pandoc vim setting
 " Bib file for pandoc
-"let g:pandoc_biblio_bibs = '~/Dropbox/Latex_bib_sty/zotero.bib'
+let g:pandoc_biblio_bibs = '~/Dropbox/Latex_bib_sty/zotero.bib'
 "let g:pandoc#biblio#bibs = ['~/Dropbox/Latex_bib_sty/zotero.bib']
 let g:pandoc#biblio#sources = "bclg"
 " remember to put default.bib in /.pandoc/
@@ -274,27 +332,48 @@ let g:vim_markdown_folding_disabled=1
 " Format paragraphs with <leader>q
 map <leader>q {!}fmt -w 80<CR>}<CR>
 
+let g:SuperTabDefaultCompletionType = "context"
+" open Nerdtree by press F3
+nnoremap <silent> <F3> :NERDTreeToggle<CR>
+
+" ctrlp Settings
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+"let g:ctrlp_custom_ignore = {
+  "\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  "\ 'file': '\v\.(exe|so|dll)$',
+  "\ 'link': 'some_bad_symbolic_links',
+  "\ }
 
  "=========== Gvim Settings =============
 
-" Removing scrollbars
+ "Removing scrollbars
 if has("gui_running")
 "    set guitablabel=%-0.12t%M
-    "set guioptions-=T
-    "set guioptions-=r
-    "set guioptions-=L
-    "set guioptions+=a
-    "set guioptions-=m
-    " Use the Solarized Dark theme
-    set background=dark
-    colorscheme solarized
-    " Use 14pt Monaco
-	"set guifont=Monospace:h12
-    set listchars=tab:▸\ ,eol:¬,trail:.         " Invisibles using the Textmate style
+	"set guioptions-=T
+	"set guioptions-=r
+	"set guioptions-=L
+	"set guioptions+=a
+	"set guioptions-=m
+	" Use the Solarized Dark theme
+	set background=light
+	let g:solarized_termtrans=1
+	let g:solarized_termcolors=256
+	let g:solarized_contrast="high"
+	let g:solarized_visibility="high"
+	colorscheme solarized 
+	" Use 14pt Monaco
+	set guifont=Cousine\ 12
+	set listchars=tab:▸\ ,eol:¬,trail:.         " Invisibles using the Textmate style
 else
-    set t_Co=256
-    colorschem solarized 
-    "colorschem torte
+	set t_Co=256
+	colorscheme solarized 
+	"colorschem torte
 endif
 
 " =========== ending Gvim Setting ===========
+"

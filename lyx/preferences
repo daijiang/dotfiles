@@ -8,7 +8,7 @@ Format 15
 # MISC SECTION ######################################
 #
 
-\serverpipe "/home/lupine/.lyxpipe"
+\serverpipe "~/.lyxpipe"
 \user_name "lupine"
 \user_email ""
 
@@ -102,6 +102,7 @@ Format 15
 # TEX SECTION #######################################
 #
 
+\font_encoding "default"
 
 #
 # FILE SECTION ######################################
