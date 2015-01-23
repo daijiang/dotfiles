@@ -2,7 +2,7 @@ dotfiles
 ========
 My setting files. Not ready for others but you are welcome to tweak them for your own use.
 
-When you want to update your setting, just `git pull` first and then run `symbollinks.sh`.
+When you want to update your setting, just `git pull` first and then run `bash symbollinks.sh`.
 
 ## vim
 
