@@ -5,6 +5,16 @@ My setting files. Not ready for others but you are welcome to tweak them for you
 When you want to update your setting, just `git pull` first and then run `bash symbollinks.sh`.
 
 ## vim
+- `,vs` to see white spaces.
+- `,ev`  to open vimrc.
+- `,s` to save the file.
+- `,T` to insert current date and time.
+- `/` to search.
+- `, `  to clear search.
+- `,V` to switch to attraction-free (goyo pkg)
+- `,L` to highlight only current line.
+
+- citations: in insert mode, type `@author` then `C-x C-o` to get suggestions about keys.
 
 ## Zotero set up: 
 

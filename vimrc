@@ -315,8 +315,15 @@ let g:neocomplete#enable_at_startup = 1
 " Bib file for pandoc
 let g:pandoc_biblio_bibs = '~/Dropbox/Latex_bib_sty/zotero.bib'
 "let g:pandoc#biblio#bibs = ['~/Dropbox/Latex_bib_sty/zotero.bib']
+"
 let g:pandoc#biblio#sources = "bclg"
 " remember to put default.bib in /.pandoc/
+" 1) [b] Search for any bibliography that shares the name of the current file in the current directory. So, if the document is named `paper.mkd`, it will look for `paper.bib`, paper.ris`, and so on.
+"2) [c] Search for any bibliography in the current dir.
+"3) [l] Search for default bibliographies (`default.bib`, `default.ris`, etc.) in pandoc's data dir ("$HOME/.pandoc/" in *nix, "%APPDATA%/pandoc/" in Windows)
+"4) [t] Search for bibliographies in texmf (requires the `kpsewhich` program)
+"5) [g] Add any bibliographies listed in |g:pandoc#biblio#bibs|.
+"
 let g:pandoc#command#latex_engine = "pdflatex"
 let g:pandoc#biblio#use_bibtool = 1
 " This line is needed for bib files
