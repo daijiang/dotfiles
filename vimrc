@@ -275,7 +275,7 @@ Plugin 'vim-scripts/supertab'
 Plugin 'chriskempson/base16-vim'
 
 "multiple cursor 
-Plugin 'terryma/vim-multiple-cursors'
+Plugin 'kristijanhusak/vim-multiple-cursors'
 
 
 
