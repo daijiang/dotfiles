@@ -80,7 +80,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " View whitespace
-nnoremap <leader>l :set list!<CR>
+nnoremap <leader>vs :set list!<CR>
 set listchars=tab:»\ ,eol:¬
 "set showbreak=↪
 
@@ -277,7 +277,8 @@ Plugin 'chriskempson/base16-vim'
 "multiple cursor 
 Plugin 'kristijanhusak/vim-multiple-cursors'
 
-
+" Latex
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 
 " LaTeX-Suite

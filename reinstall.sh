@@ -51,6 +51,10 @@ sudo dpkg -i ~/Downloads/rstudio-*-amd64.deb
 sudo apt-get install nautilus-open-terminal
 nautilus -q && nautilus &
 
+# use pandoc shipped by Rstudio for global use
+sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc /usr/local/bin
+sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc-citeproc /usr/local/bin
+
 # at the end -----------
 # sudo chown root:root reinstall.sh (change owner of the script)
 # sudo chmod a+x reinstall.sh (change permision)

@@ -9,13 +9,14 @@ Format 15
 #
 
 \serverpipe "~/.lyxpipe"
-\user_name "lupine"
+\user_name "dli"
 \user_email ""
 
 #
 # SCREEN & FONTS SECTION ############################
 #
 
+\screen_font_roman "Cousine"
 \screen_font_sizes 5 7 8 9 10 12 14.4 17.260000000000002 20.739999999999998 24.879999999999999
 \fullscreen_limit true
 \fullscreen_toolbars false
