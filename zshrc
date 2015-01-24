@@ -55,7 +55,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # add pandoc into environmental variables *************************************
-# export PATH=$PATH:$HOME/.cabal/bin
+export PATH=$PATH:$HOME/.cabal/bin
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
