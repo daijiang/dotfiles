@@ -21,6 +21,10 @@ set mouse=a
 " set title to window
 set title
 
+" Copying and pasting
+imap <C-v> <C-r><C-o>+
+imap <C-c> <CR><Esc>O
+
 " Make pasting done without any indentation break."
 set pastetoggle=<F4>
 
@@ -45,16 +49,44 @@ set expandtab
 set smarttab
 
 " Status line
-set laststatus=2
-set statusline=
-set statusline+=%-3.3n\ " buffer number
-set statusline+=%f\ " filename
-set statusline+=%h%m%r%w " status flags
-set statusline+=\[%{strlen(&ft)?&ft:'none'}] " file type
-set statusline+=%= " right align remainder
-set statusline+=0x%-8B " character value
-set statusline+=%-14(%l,%c%V%) " line, character
-set statusline+=%<%P " file position
+"set laststatus=2          " always show a status line
+"set statusline=
+"set statusline+=%-3.3n\ " buffer number
+"set statusline+=%f\ " filename
+"set statusline+=%h%m%r%w " status flags
+"set statusline+=\[%{strlen(&ft)?&ft:'none'}] " file type
+"set statusline+=%= " right align remainder
+"set statusline+=0x%-8B " character value
+"set statusline+=%-14(%l,%c%V%) " line, character
+"set statusline+=%<%P " file position
+
+set laststatus=2                            " always show a status line
+set statusline=""
+set statusline+=%t                          " tail/filename
+set statusline+=%m%r%h                      " modified/read only/help
+set statusline+=\ [%Y]                      " line endings/type of file
+set statusline+=\ %{fugitive#statusline()}  " Git status
+set statusline+=%=                          " left/right separator
+" Syntastic warning
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"display a warning if &paste is set
+set statusline+=%#error#
+set statusline+=%{&paste?'[paste]':''}
+set statusline+=%*
+" display a warning if the line endings aren't unix
+set statusline+=%#warningmsg#
+set statusline+=%{&ff!='unix'?'['.&ff.']':''}
+set statusline+=%*
+" display a warning if file encoding isnt utf-8
+set statusline+=%#warningmsg#
+set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
+set statusline+=%*
+" progress through file
+set statusline+=C:%02c,                       " cursor column
+set statusline+=L:%03l/%03L                   " cursor line/total lines
+set statusline+=\ %P                        " percent through file
 
 "  Show the (partial) command as it’s being typed 
 set showcmd
@@ -71,6 +103,8 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 set splitbelow
 set splitright
+" Resize the splits if the vim windows is resized
+autocmd VimResized * :wincmd =
 
 "open vimrc with ,ev
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
@@ -157,6 +191,11 @@ au BufRead,BufNewFile *.md set filetype=markdown
 
 " Enable spellchecking for Markdown
 "autocmd FileType markdown setlocal spell
+" Spell check 
+" -------------------------------------------------------------------
+set spelllang=en_us                         " US English
+set spell                                   " spell check on
+set spellsuggest=10                         " only suggest a few words
 
 " Automatically wrap at 80 characters for Markdown
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
@@ -179,8 +218,10 @@ nnoremap <C-y> 5<C-y>
 " Intuitive backspacing in insert mode
 set backspace=indent,eol,start
 
-set t_Co=256
+" color terminal
+set t_Co=16
 colorscheme solarized 
+set background=light
 
 """"""""" Vundle
 " set the runtime path to include Vundle and initialize
