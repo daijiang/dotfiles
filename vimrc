@@ -196,6 +196,9 @@ au BufRead,BufNewFile *.md set filetype=markdown
 set spelllang=en_us                         " US English
 set spell                                   " spell check on
 set spellsuggest=10                         " only suggest a few words
+" toggle spelling with F6 key
+  map <F6> :set spell!<CR><Bar>:echo "Spell Check: " . strpart("OffOn", 3 * &spell, 3)<CR>
+
 
 " Automatically wrap at 80 characters for Markdown
 autocmd BufRead,BufNewFile *.md setlocal textwidth=80
@@ -273,6 +276,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 "Plugin 'gabrielelana/vim-markdown'
+"Plugin 'tpope/vim-markdown'
 "
 " Passive voice
 Plugin 'jamestomasino/vim-writingsyntax'
@@ -334,16 +338,16 @@ filetype plugin indent on    " required
 """""""" end of vundle.
 
 " Limelight integration to Goyo
-function! GoyoBefore()
-   Limelight
-endfunction
+"function! GoyoBefore()
+   "Limelight
+"endfunction
 
-function! GoyoAfter()
-   Limelight!
-endfunction
+"function! GoyoAfter()
+   "Limelight!
+"endfunction
 
-let g:goyo_callbacks = [function('GoyoBefore'), function('GoyoAfter')]
-let g:limelight_conceal_ctermfg = 8
+"let g:goyo_callbacks = [function('GoyoBefore'), function('GoyoAfter')]
+"let g:limelight_conceal_ctermfg = 8
 
 nnoremap <leader>V :Goyo<CR>
 nnoremap <leader>L :Limelight!!<CR>
@@ -377,6 +381,8 @@ let g:pandoc#syntax#conceal#use = 0
 
 "plasticboy/vim-markdow I do not like folding
 let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_math=1
+let g:vim_markdown_frontmatter=1
 
 " Format paragraphs with <leader>q
 map <leader>q {!}fmt -w 80<CR>}<CR>
