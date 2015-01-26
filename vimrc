@@ -222,9 +222,9 @@ nnoremap <C-y> 5<C-y>
 set backspace=indent,eol,start
 
 " color terminal
-set t_Co=16
-colorscheme solarized 
-set background=light
+" set t_Co=16
+" colorscheme solarized 
+" set background=light
 
 """"""""" Vundle
 " set the runtime path to include Vundle and initialize
@@ -413,7 +413,7 @@ if has("gui_running")
 	"set guioptions-=r
 	"set guioptions-=L
 	"set guioptions+=a
-	"set guioptions-=m
+	set guioptions-=m
 	" Use the Solarized Dark theme
 	set background=light
 	let g:solarized_termtrans=1
@@ -422,10 +422,11 @@ if has("gui_running")
 	let g:solarized_visibility="high"
 	colorscheme solarized 
 	" Use 14pt Monaco
-	set guifont=Cousine\ 12
+	set guifont=Cousine\ 13
 	set listchars=tab:▸\ ,eol:¬,trail:.         " Invisibles using the Textmate style
 else
 	set t_Co=256
+	let g:solarized_termcolors=256
 	colorscheme solarized 
 	"colorschem torte
 endif

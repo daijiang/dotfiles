@@ -5,16 +5,23 @@ My setting files. Not ready for others but you are welcome to tweak them for you
 When you want to update your setting, just `git pull` first and then run `bash symbollinks.sh`.
 
 ## vim
+#### Install
+`sudo apt-get install vim vim-gtk` to install full version of vim and Gvim.  
+`git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim` to install Vundle for package management.  
+Then run `bash symbollink.sh`  to install vimrc.  
+Then in Vim, `:PluginInstall` to install all packages.
+
 - `,vs` to see white spaces.
 - `,ev`  to open vimrc.
 - `,s` to save the file.
 - `,T` to insert current date and time.
 - `/` to search.
-- `, `  to clear search.
+- `,space`  to clear search.
 - `,V` to switch to attraction-free (goyo pkg)
 - `,L` to highlight only current line.
 
-- citations: in insert mode, type `@author` then `C-x C-o` to get suggestions about keys.
+- citations: in insert mode, type `@author` then `C-x C-o` to get suggestions about keys, then use arrow key to navigate.
+- easymotion: `,,w` to move to any word.
 
 ## Zotero set up: 
 
@@ -33,7 +40,13 @@ When you want to update your setting, just `git pull` first and then run `bash s
 6. install Qnotero, then open its preferences, set zotero folder to ~/.zotero/zotero/*.default/zotero . To set a shortcut, open system setting of the computer, then -- keyboard -- shortcuts--custom shortcues, command is qnotero, set shortcut as alt+q
 
 ## Pandoc path
-After install Pandoc with cabal, `cp ~/.cabal/bin/pandoc /usr/bin/pandoc` and `cp ~/.cabal/bin/pandoc-citeproc /usr/bin/pandoc-citeproc`.
+~~After install Pandoc with cabal, `cp ~/.cabal/bin/pandoc /usr/bin/pandoc` and `cp ~/.cabal/bin/pandoc-citeproc /usr/bin/pandoc-citeproc`.~~
+
+Instead, we can just use the Pandoc shipped with Rstudio: 
+
+	sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc /usr/local/bin
+	sudo ln -s /usr/lib/rstudio/bin/pandoc/pandoc-citeproc /usr/local/bin
+
 
 ## snippet in snipMate
 
