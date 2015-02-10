@@ -158,7 +158,7 @@ set nostartofline
 set autoread
 
 "Various general options
-"set noswapfile
+set noswapfile
 "set nobackup
 "set nowritebackup
 set noerrorbells
@@ -188,6 +188,7 @@ set formatoptions=qrn1
 
 " auto highlight markdown syntax
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.Rmd set filetype=pandoc
 
 " Enable spellchecking for Markdown
 "autocmd FileType markdown setlocal spell
@@ -268,6 +269,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-pandoc-after'
 Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-rmarkdown'
 
 " less syntax
 Plugin 'groenewege/vim-less'
@@ -288,6 +290,7 @@ Plugin 'wincent/Command-T'
 
 " git tools
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 
 " jump around documents
 Plugin 'Lokaltog/vim-easymotion'
@@ -409,20 +412,21 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
  "Removing scrollbars
 if has("gui_running")
 "    set guitablabel=%-0.12t%M
-	"set guioptions-=T
+	"set guioptions-=T " toolbar 
 	"set guioptions-=r
 	"set guioptions-=L
 	"set guioptions+=a
-	set guioptions-=m
+	"set guioptions-=m
 	" Use the Solarized Dark theme
-	set background=light
-	let g:solarized_termtrans=1
-	let g:solarized_termcolors=256
-	let g:solarized_contrast="high"
-	let g:solarized_visibility="high"
-	colorscheme solarized 
+	set background=dark
+	"set background=light
+	"let g:solarized_termtrans=1
+	"let g:solarized_termcolors=256
+	"let g:solarized_contrast="high"
+	"let g:solarized_visibility="high"
+	colorscheme base16-monokai "color, summerfruit, ... looks good"
 	" Use 14pt Monaco
-	set guifont=Cousine\ 13
+	set guifont=Cousine\ 12
 	set listchars=tab:▸\ ,eol:¬,trail:.         " Invisibles using the Textmate style
 else
 	set t_Co=256
