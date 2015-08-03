@@ -17,7 +17,7 @@ vim/bundle/snipmate.vim/snippets/_.snippets
 lyx/preferences 
 fonts 
 gitignore_global
-python/profile_default/static/custom"
+ipython/profile_default/static/custom"
 
 ##########
 #If did not install Vundle before, uncomm this line.
