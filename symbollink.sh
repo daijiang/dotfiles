@@ -16,7 +16,8 @@ oh-my-zsh/themes/dli.zsh-theme
 vim/bundle/snipmate.vim/snippets/_.snippets 
 lyx/preferences 
 fonts 
-gitignore_global"
+gitignore_global
+ipython/profile_default/static/custom"
 
 ##########
 #If did not install Vundle before, uncomm this line.

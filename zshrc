@@ -58,6 +58,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 # add pandoc into environmental variables *************************************
 export PATH=$PATH:$HOME/.cabal/bin
 
+# add anaconda to path
 export PATH="$HOME/anaconda/bin:$PATH"
 
 # add texlive to path
