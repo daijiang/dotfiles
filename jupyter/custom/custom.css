@@ -26,7 +26,7 @@ div #notebook { /* centre the content */
 div.text_cell_render.border-box-sizing.rendered_html {
     margin: 0;
     padding: 0; 
-    margin-left: 1ex;
+    margin-left: 0ex;
 }
 div.cell.text_cell.border-box-sizing {
     margin: 0;
@@ -34,22 +34,22 @@ div.cell.text_cell.border-box-sizing {
 }
 .rendered_html h1 {
     margin: 0;
-    padding-top: 1ex;
+    padding-top: 0ex;
 }
 .rendered_html h2 {
     margin: 0;
-    padding-top: 1ex;
+    padding-top: 0ex;
 }
 .rendered_html h3 {
     margin: 0;
-    padding-top: 1ex;
+    padding-top: 0ex;
 }
 
 div.cell.code_cell { /* area that contains code + output */
     background: #fff;
     border: none;
     border-radius: 10px;
-    padding-top: 1ex;
+    padding-top: 0.1ex;
 }
 
 div.input_area { /* box around box with code */
@@ -57,8 +57,8 @@ div.input_area { /* box around box with code */
     background: #f5f5f5;
     border: 1px solid #ccc;
     border-radius: 10px;
-    padding-top: 0.5ex;
-    padding-bottom: 0.5ex;
+    padding-top: 0ex;
+    padding-bottom: 0ex;
     padding-left: 0;
 }
 
