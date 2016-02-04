@@ -61,6 +61,8 @@ export PATH=$PATH:$HOME/.cabal/bin
 # add anaconda to path
 export PATH="$HOME/anaconda/bin:$PATH"
 
+export PATH=$PATH:/home/dli/FoxitSoftware/FoxitReader/
+
 # add texlive to path
 # export PATH=$PATH:/usr/local/texlive/2014/bin/x86_64-linux
 
