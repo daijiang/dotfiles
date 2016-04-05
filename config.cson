@@ -1,0 +1,56 @@
+"*":
+  "atom-material-ui":
+    colors: {}
+    fonts: {}
+    tabs:
+      compactTabs: true
+    treeView:
+      compactList: true
+    ui:
+      panelContrast: true
+  "autocomplete-bibtex":
+    bibtex: [
+      "/Users/dli/Dropbox/Analysis_PhD/thesis/chapter1/ch1.bib, /Users/dli/Dropbox/Analysis_PhD/thesis/chapter2/ch2.bib, /Users/dli/Dropbox/Analysis_PhD/thesis/chapter3/ch3.bib"
+    ]
+    resultTemplate: "\\citep{[key]}"
+    scope: ".source.gfm, .text.tex.latex, .text.md"
+  "autocomplete-plus":
+    fileBlacklist: [
+      ".*"
+    ]
+  core:
+    disabledPackages: [
+      "fonts"
+    ]
+    packagesWithKeymapsDisabled: [
+      "spell-check"
+    ]
+  editor:
+    fontSize: 17
+    invisibles: {}
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  "exception-reporting":
+    userId: "9c0e0784-7da7-a9d3-cd3b-80122c32ccb8"
+  fonts: {}
+  minimap:
+    plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+  "one-dark-ui":
+    layoutMode: "Compact"
+  "spell-check":
+    grammars: [
+      "text.tex.latex"
+    ]
+  "vim-mode":
+    startInInsertMode: true
+  welcome:
+    showOnStartup: false
+  wordcount:
+    alwaysOn: true
+    ignorecode: true
+    noextension: true
+"source.gfm":
+  editor:
+    softWrap: true

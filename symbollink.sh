@@ -18,7 +18,8 @@ lyx/preferences
 fonts 
 gitignore_global
 ipython/profile_default/static/custom
-jupyter/custom"
+jupyter/custom
+atom/config.cson"
 
 ##########
 #If did not install Vundle before, uncomm this line.
