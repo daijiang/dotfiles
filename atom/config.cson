@@ -10,7 +10,9 @@
       panelContrast: true
   "autocomplete-bibtex":
     bibtex: [
-      "/Users/dli/Dropbox/Analysis_PhD/thesis/chapter1/ch1.bib, /Users/dli/Dropbox/Analysis_PhD/thesis/chapter2/ch2.bib, /Users/dli/Dropbox/Analysis_PhD/thesis/chapter3/ch3.bib"
+      "/Users/dli/Dropbox/Analysis_PhD/thesis/chapter1/ch1.bib"
+      "/Users/dli/Dropbox/Analysis_PhD/thesis/chapter2/ch2.bib"
+      "/Users/dli/Dropbox/Analysis_PhD/thesis/chapter3/ch3.bib"
     ]
     resultTemplate: "\\citep{[key]}"
     scope: ".source.gfm, .text.tex.latex, .text.md"
