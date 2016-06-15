@@ -26,7 +26,7 @@ Then in Vim, `:PluginInstall` to install all packages.
 ## Zotero set up: 
 
 1. install: https://github.com/smathot/zotero_installer (will be done with reinstall.sh)
-2. link with Dropbox:   ln -s ~/Dropbox/zotero/storage ~/.zotero/zotero/*.default/zotero/storage
+2. link with Dropbox:   ln -s ~/Dropbox/zotero/storage ~/.zotero/zotero/*.default/zotero/storage For Mac: ln -s ~/Dropbox/Zotero/storage ~/Library/Application\ Support/Zotero/Profiles/*.default/zotero/storage
 3. Zotero preference
 	- General: uncheck auto take snapshot; ubcheck auto tag items  
 	- Sync: uncheck sync attachments files in my library using zotero  
