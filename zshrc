@@ -52,7 +52,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+# export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # add pandoc into environmental variables *************************************
@@ -61,7 +61,7 @@ export PATH=$PATH:$HOME/.cabal/bin
 # add anaconda to path
 export PATH="$HOME/anaconda/bin:$PATH"
 
-export PATH=$PATH:/home/dli/FoxitSoftware/FoxitReader/
+# export PATH=$PATH:/home/dli/FoxitSoftware/FoxitReader/
 
 # add texlive to path
 # export PATH=$PATH:/usr/local/texlive/2014/bin/x86_64-linux

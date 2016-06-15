@@ -8,14 +8,15 @@
 
 dir=~/github/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="vimrc 
-zshrc 
-Renviron 
-vim/colors 
-oh-my-zsh/themes/dli.zsh-theme 
-vim/bundle/snipmate.vim/snippets/_.snippets 
-lyx/preferences 
-fonts 
+files="
+# vimrc
+zshrc
+Renviron
+# vim/colors
+oh-my-zsh/themes/dli.zsh-theme
+# vim/bundle/snipmate.vim/snippets/_.snippets
+lyx/preferences
+fonts
 gitignore_global
 ipython/profile_default/static/custom
 jupyter/custom
