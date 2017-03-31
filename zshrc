@@ -59,9 +59,11 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 export PATH=$PATH:$HOME/.cabal/bin
 
 # add anaconda to path
-export PATH="$HOME/anaconda/bin:$PATH"
+export PATH="$HOME/anaconda3/bin:$PATH"
 
-export PATH=$PATH:/home/dli/FoxitSoftware/FoxitReader/
+# export PATH=$PATH:/home/dli/FoxitSoftware/FoxitReader/
+export PATH=$PATH:/Library/TeX/texbin # for latex
+export PATH=$PATH:/Users/dli/Documents/phylocom-4.2/src # for phylocom
 
 # add texlive to path
 # export PATH=$PATH:/usr/local/texlive/2014/bin/x86_64-linux

@@ -8,14 +8,13 @@
 
 dir=~/github/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="vimrc 
-zshrc 
-Renviron 
-vim/colors 
-oh-my-zsh/themes/dli.zsh-theme 
-vim/bundle/snipmate.vim/snippets/_.snippets 
-lyx/preferences 
-fonts 
+files="vimrc
+zshrc
+Renviron
+vim/colors
+oh-my-zsh/themes/dli.zsh-theme
+vim/bundle/snipmate.vim/snippets/_.snippets
+fonts
 gitignore_global
 ipython/profile_default/static/custom
 jupyter/custom
@@ -43,6 +42,10 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
+
+# lyx preferences file on OSX location is different
+ln -s $dir/lyx/preferences /Users/dli/Library/Application\ Support/LyX-*/.
+# for Ubuntu, just put lyx/preferences in the files list
 
 #install_zsh () {
 ## Test to see if zshell is installed.  If it is:
