@@ -1,13 +1,23 @@
 "*":
+  Hydrogen:
+    debug: true
+  Zen:
+    minimap: true
+    showWordCount: "Right"
+    tabs: "multiple"
   "atom-material-ui":
-    colors: {}
+    colors:
+      abaseColor: "#ffa726"
+      accentColor: "#9f6918"
+      paintCursor: true
+      predefinedColor: "Orange"
     fonts: {}
     tabs:
       compactTabs: true
     treeView:
       compactList: true
     ui:
-      panelContrast: true
+      useAnimations: false
   "autocomplete-bibtex":
     resultTemplate: "\\citep{[key]}"
     scope: ".source.gfm, .text.tex.latex, .text.md"
@@ -16,36 +26,55 @@
       ".*"
     ]
   core:
-    automaticallyUpdate: false
     disabledPackages: [
       "language-gfm"
-      "fonts"
+      "markdown-writer"
+      "Zen"
     ]
     packagesWithKeymapsDisabled: [
       "spell-check"
     ]
+    telemetryConsent: "limited"
+    themes: [
+      "atom-material-ui"
+      "base16-tomorrow-dark-theme"
+    ]
   editor:
-    fontSize: 17
+    fontSize: 18
     invisibles: {}
-    lineHeight: 1.6
-    preferredLineLength: 90
+    preferredLineLength: 110
     softWrap: true
     softWrapAtPreferredLineLength: true
   "exception-reporting":
     userId: "9c0e0784-7da7-a9d3-cd3b-80122c32ccb8"
-  fonts: {}
+  fonts:
+    fontFamily: "Iosevka"
+  "language-markdown": {}
+  "markdown-preview-plus":
+    enableLatexRenderingByDefault: true
+    pandocBibliography: true
+    pandocPath: "/Applications/RStudio.app/Contents/MacOS/pandoc"
+  "markdown-writer":
+    fileExtension: ".markdown, .md, .Rmd, .txt"
   minimap:
     plugins:
       "find-and-replace": true
       "find-and-replaceDecorationsZIndex": 0
-  "one-dark-ui":
-    layoutMode: "Compact"
+  "one-dark-ui": {}
   "spell-check":
     grammars: [
       "text.tex.latex"
       "text.plain"
       "text.md"
     ]
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    scrollSyncType: "Vertical + Horizontal"
+  typewriter:
+    showGutter: true
   "vim-mode":
     startInInsertMode: true
   welcome:
@@ -54,6 +83,13 @@
     alwaysOn: true
     ignorecode: true
     noextension: true
+".breakpoints.hydrogen":
+  editor:
+    preferredLineLength: 90
+".md.text":
+  editor:
+    preferredLineLength: 95
+    softWrap: true
 "source.gfm":
   editor:
     softWrap: true
