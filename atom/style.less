@@ -1,0 +1,72 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+
+
+/*
+ * Examples
+ * (To see them, uncomment and save)
+ */
+
+// style the background color of the tree view
+.tree-view {
+  // background-color: whitesmoke;
+}
+
+// style the background and foreground colors on the atom-text-editor-element itself
+atom-text-editor {
+  // color: white;
+  // background-color: hsl(180, 24%, 12%);
+}
+
+// To style other content in the text editor's shadow DOM, use the ::shadow expression
+atom-text-editor::shadow .cursor {
+  // border-color: red;
+}
+
+@green:         #00FF00;
+@red:           #c16161;
+@orange:        #d08e25;
+@blue:          #0066cc;
+
+&.syntax--math {
+  .syntax--support {
+    color: darken(@green, 5%);
+  }
+
+  .syntax--punctuation.syntax--arguments{
+    color: lighten(@red, 5%);
+  }
+
+  .syntax--tex {
+    &.syntax--constant {
+      color: @orange;
+      &.syntax--numeric {
+        color: @green;
+      }
+    }
+  }
+
+  background: transparent;
+  color: darken(@green, 15%);
+}
+
+.syntax--md {
+  .syntax--math.syntax--block {
+    & > .syntax--punctuation {
+      color: @blue;
+    }
+  }
+  .syntax--math.syntax--inline {
+    & > .syntax--punctuation {
+      color: @blue;
+    }
+  }
+}
