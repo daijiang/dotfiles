@@ -1,99 +1,101 @@
 "*":
   Hydrogen:
-    debug: true
+    kernelNotifications: true
+    kernelspec: '''
+      {
+        "kernelspecs": {
+          "ir": {
+            "resource_dir": "/Users/dli/Library/Jupyter/kernels/ir",
+            "spec": {
+              "language": "R",
+              "display_name": "R",
+              "env": {},
+              "argv": [
+                "/Library/Frameworks/R.framework/Resources/bin/R",
+                "--slave",
+                "-e",
+                "IRkernel::main()",
+                "--args",
+                "{connection_file}"
+              ]
+            }
+          },
+          "python2": {
+            "resource_dir": "/Users/dli/anaconda/lib/python2.7/site-packages/ipykernel/resources",
+            "spec": {
+              "language": "python",
+              "display_name": "Python 2",
+              "env": {},
+              "argv": [
+                "/Users/dli/anaconda/bin/python",
+                "-m",
+                "ipykernel",
+                "-f",
+                "{connection_file}"
+              ]
+            }
+          }
+        }
+      }
+    '''
   Zen:
-    minimap: true
     showWordCount: "Right"
-    tabs: "multiple"
+    softWrap: true
   "atom-material-ui":
     colors:
-      abaseColor: "#ffa726"
-      accentColor: "#9f6918"
-      paintCursor: true
-      predefinedColor: "Orange"
-    fonts: {}
+      accentColor: "#af0010"
+      genAccent: true
     tabs:
       compactTabs: true
     treeView:
       compactList: true
-    ui:
-      useAnimations: false
-  "autocomplete-bibtex":
-    resultTemplate: "\\citep{[key]}"
-    scope: ".source.gfm, .text.tex.latex, .text.md"
+    ui: {}
   "autocomplete-plus":
-    fileBlacklist: [
-      ".*"
-    ]
+    confirmCompletion: "tab always, enter when suggestion explicitly selected"
   core:
     disabledPackages: [
       "language-gfm"
-      "markdown-writer"
-      "Zen"
-    ]
-    packagesWithKeymapsDisabled: [
-      "spell-check"
     ]
     telemetryConsent: "limited"
     themes: [
       "atom-material-ui"
-      "base16-tomorrow-dark-theme"
+      "one-dark-syntax"
     ]
   editor:
-    fontSize: 18
-    invisibles: {}
-    preferredLineLength: 110
+    fontSize: 17
+    scrollPastEnd: true
     softWrap: true
-    softWrapAtPreferredLineLength: true
   "exception-reporting":
-    userId: "9c0e0784-7da7-a9d3-cd3b-80122c32ccb8"
+    userId: "1264d4f8-3647-4a74-a401-9899810a416b"
   fonts:
     fontFamily: "Iosevka"
-  "language-markdown": {}
-  "markdown-preview-plus":
-    enableLatexRenderingByDefault: true
-    pandocBibliography: true
-    pandocPath: "/Applications/RStudio.app/Contents/MacOS/pandoc"
-  "markdown-writer":
-    fileExtension: ".markdown, .md, .Rmd, .txt"
+  "julia-client":
+    enableMenu: true
+    enableToolBar: true
+  "language-markdown":
+    disableLanguageGfm: false
+  "markdown-preview":
+    useGitHubStyle: true
   minimap:
     plugins:
       "find-and-replace": true
       "find-and-replaceDecorationsZIndex": 0
-  "one-dark-ui": {}
-  "spell-check":
-    grammars: [
-      "text.tex.latex"
-      "text.plain"
-      "text.md"
-    ]
-  "split-diff":
-    diffWords: true
-    ignoreWhitespace: true
-    leftEditorColor: "red"
-    rightEditorColor: "green"
-    scrollSyncType: "Vertical + Horizontal"
-  typewriter:
-    showGutter: true
-  "vim-mode":
-    startInInsertMode: true
+  "tool-bar":
+    position: "Left"
+  "uber-juno":
+    disable: true
   welcome:
     showOnStartup: false
   wordcount:
     alwaysOn: true
+    hidechars: true
     ignorecode: true
-    noextension: true
-".breakpoints.hydrogen":
-  editor:
-    preferredLineLength: 90
 ".md.text":
   editor:
-    preferredLineLength: 95
+    preferredLineLength: 100
     softWrap: true
+    softWrapAtPreferredLineLength: true
 "source.gfm":
-  editor:
-    softWrap: true
-"text.latex.tex":
   editor:
     softWrap: true
 "text.md":
